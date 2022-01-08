@@ -1,0 +1,81 @@
+@import 'colors.scss';
+body {
+  background-color: $main_bg_color;
+}
+
+.icon-list {
+  padding-left: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: .25rem;
+
+    &::before {
+      display: block;
+      flex-shrink: 0;
+      width: 1.5em;
+      height: 1.5em;
+      margin-right: .5rem;
+      content: "";
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 16 16'%3E%3Cpath d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z'/%3E%3C/svg%3E") no-repeat center center / 100% auto;
+    }
+  }
+}
+
+@mixin button($bg_color:0, $border_color:0, $color:0){
+  border-color: $border_color;
+  &:hover{
+    background-color:$border_color;
+    border-color:$border_color;
+  }
+  @if $bg_color != 0 {
+    background-color:$bg_color;
+  }
+  @if $color != 0 {
+    color:$color;
+  }
+}
+//.btn-primary {
+//  @include button($primary_color, $primary_border_color);
+//}
+//.btn-outline-primary{
+//  @include button(0, $primary_border_color, $primary_border_color);
+//}
+//.btn-secondary{
+//  @include button(0, $secondary_border_color, $secondary_border_color);
+//}
+//.btn-outline-secondary{
+//  @include button(0, $secondary_border_color, $secondary_color);
+//}
+.btn-success{
+  @include button($success_color, $success_border_color);
+  color: #fff;
+}
+//.btn-outline-success{
+//  @include button(0, $success_color, $success_border_color);
+//}
+
+h1,
+h2,
+h3{
+  font-family: 'Varela Round', sans-serif;
+}
+.color-pink{
+  color:$header_color;
+}
+.btn{
+    border-radius: 3em;
+}
+p{
+  color: $text_color;
+}
+a{
+  text-decoration: none;
+  color: $primary_color;
+}
+
+.card{
+  background-color:rgba(255, 255, 255, .3);
+}

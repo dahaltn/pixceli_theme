@@ -1,0 +1,50 @@
+version: '3.4'
+services:
+  #PHP Service
+  web:
+    build:
+      context: ./theme
+      dockerfile: Dockerfile
+    image: dahaltn/theme:latest
+    container_name: theme_web
+    restart: unless-stopped
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /var/www/html
+    volumes:
+      - ./theme:/var/www/html
+#      - ./php/php.ini-development:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - theme-network
+    ports:
+      - 80:80
+      - 443:443
+
+  #MySQL Service
+#  db:
+#    image: mysql:5.7.22
+#    container_name: db
+#    restart: unless-stopped
+#    tty: true
+#    ports:
+#      - "3306:3306"
+#    environment:
+#      MYSQL_DATABASE: app_db
+#      MYSQL_ROOT_PASSWORD: newnew
+#      SERVICE_TAGS: dev
+#      SERVICE_NAME: mysql
+#    volumes:
+#      - dbdata:/var/lib/mysql/
+##      - ./mysql/mysql.cnf:/etc/mysql/mysql.cnf
+#    networks:
+#      - app-network
+
+#Docker Networks
+networks:
+  theme-network:
+    external: false
+#Volumes
+#volumes:
+#  dbdata:
+#    driver: local

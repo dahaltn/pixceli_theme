@@ -1,0 +1,18 @@
+$primary_color: #4284b3;
+$primary_border_color: #2871a2;
+
+$secondary_color: #7c95ab;
+$secondary_border_color: #647b8f;
+
+$success_color: #1eae98;
+$success_border_color: #19a791;
+$header_color: #c92661;
+$text_color: #1c2148;
+
+
+$main_bg_color: #fcecdd;
+
+@mixin primary_btn {
+  background-color: #599ccb;
+  border-color: #5091bf;
+}
